@@ -1,0 +1,44 @@
+name: golang17
+version: 1.7rc2
+summary: Go programming language compiler
+description: Go programming language compiler
+confinement: strict
+
+apps:
+  go17:
+    command: bin/go-wrapper.sh
+    plugs: [home, network, network-bind, mount-observe, system-observe]
+
+parts:
+  go14:
+    plugin: bash
+    install: false
+    source: https://storage.googleapis.com/golang/go1.4.3.src.tar.gz
+    # environment:
+    #   SNAPCRAFT_STAGE: $SNAPCRAFT_STAGE
+    #   CGO_ENABLED: 0 # Fix for https://github.com/golang/go/issues/13114
+    #   go 1.4.4 should have a fix for that
+    # script: make.bash
+    script: src/bootstrap.sh
+    stage:
+      - -*
+
+  go17:
+    plugin: bash
+    install: true
+    source: https://storage.googleapis.com/golang/go1.7rc2.src.tar.gz
+    # environment:
+    #   SNAPCRAFT_STAGE: $SNAPCRAFT_STAGE
+    #   CGO_ENABLED: 1
+    script: src/make.sh
+    stage:
+      - -make.sh
+    snap:
+      - -make.sh # why?
+    after:
+      - go14
+
+  glue:
+    plugin: copy
+    files:
+      src/go-wrapper.sh: bin/go-wrapper.sh
