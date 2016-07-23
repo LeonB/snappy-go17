@@ -26,7 +26,7 @@ parts:
   go17:
     plugin: bash
     install: true
-    source: https://storage.googleapis.com/golang/go1.7rc2.src.tar.gz
+    source: https://storage.googleapis.com/golang/go1.7rc3.src.tar.gz
     # environment:
     #   SNAPCRAFT_STAGE: $SNAPCRAFT_STAGE
     #   CGO_ENABLED: 1
