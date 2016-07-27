@@ -1,5 +1,5 @@
-name: golang17
-version: 1.7rc2
+name: go17
+version: 1.7rc3
 summary: Go programming language compiler
 description: Go programming language compiler
 confinement: strict
