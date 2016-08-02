@@ -1,11 +1,11 @@
-name: go17
-version: 1.7rc3
+name: go17-lbo
+version: 1.7rc4
 summary: Go programming language compiler
 description: Go programming language compiler
 confinement: strict
 
 apps:
-  go17:
+  go17-lbo:
     command: bin/go-wrapper.sh
     plugs: [home, network, network-bind, mount-observe, system-observe]
 
@@ -26,7 +26,7 @@ parts:
   go17:
     plugin: bash
     install: true
-    source: https://storage.googleapis.com/golang/go1.7rc3.src.tar.gz
+    source: https://storage.googleapis.com/golang/go1.7rc4.src.tar.gz
     # environment:
     #   SNAPCRAFT_STAGE: $SNAPCRAFT_STAGE
     #   CGO_ENABLED: 1
