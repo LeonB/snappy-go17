@@ -1,18 +1,18 @@
-name: go16-lbo
-version: 1.6.3
+name: go14-lbo
+version: 1.4.3
 summary: Go programming language compiler
 description: Go programming language compiler
 confinement: strict
 
 apps:
-  go16-lbo:
+  go14-lbo:
     command: bin/go-wrapper.sh
     plugs: [home, network, network-bind, mount-observe, system-observe]
 
 parts:
   go14:
     plugin: bash
-    install: false
+    install: true
     source: https://storage.googleapis.com/golang/go1.4.3.src.tar.gz
     # environment:
     #   SNAPCRAFT_STAGE: $SNAPCRAFT_STAGE
@@ -20,23 +20,6 @@ parts:
     #   go 1.4.4 should have a fix for that
     # script: make.bash
     script: src/bootstrap.sh
-    stage:
-      - -*
-
-  go16:
-    plugin: bash
-    install: true
-    source: https://storage.googleapis.com/golang/go1.6.3.src.tar.gz
-    # environment:
-    #   SNAPCRAFT_STAGE: $SNAPCRAFT_STAGE
-    #   CGO_ENABLED: 1
-    script: src/make.sh
-    stage:
-      - -make.sh
-    snap:
-      - -make.sh # why?
-    after:
-      - go14
 
   glue:
     plugin: copy
