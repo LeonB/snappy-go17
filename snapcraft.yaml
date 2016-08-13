@@ -1,5 +1,5 @@
 name: go17-lbo
-version: 1.7rc4
+version: 1.7rc6
 summary: Go programming language compiler
 description: Go programming language compiler
 confinement: strict
@@ -26,7 +26,7 @@ parts:
   go17:
     plugin: bash
     install: true
-    source: https://storage.googleapis.com/golang/go1.7rc4.src.tar.gz
+    source: https://storage.googleapis.com/golang/go1.7rc6.src.tar.gz
     # environment:
     #   SNAPCRAFT_STAGE: $SNAPCRAFT_STAGE
     #   CGO_ENABLED: 1
